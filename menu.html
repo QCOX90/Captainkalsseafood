@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu | Captain Kal’s Seafood Market & Steamer</title>
+
+  <style>
+    :root {
+      --navy: #073b5c;
+      --navy-dark: #03283f;
+      --blue: #0d6fa6;
+      --red: #d94b45;
+      --gold: #d7a64a;
+      --cream: #fff8ee;
+      --white: #ffffff;
+      --text: #102433;
+      --muted: #5c6b75;
+      --line: rgba(7, 59, 92, 0.16);
+      --shadow: 0 14px 34px rgba(0,0,0,0.10);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .top-strip {
+      background: var(--navy-dark);
+      color: white;
+      text-align: center;
+      padding: 9px 12px;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand {
+      font-weight: 900;
+      color: var(--navy);
+      font-size: 1.35rem;
+      letter-spacing: -0.04em;
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .links a {
+      padding: 10px 13px;
+      border-radius: 999px;
+      color: var(--navy);
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    .links a:hover {
+      background: #dff4ff;
+    }
+
+    .call-btn {
+      background: var(--red) !important;
+      color: white !important;
+    }
+
+    .rope {
+      height: 14px;
+      background:
+        repeating-linear-gradient(
+          45deg,
+          var(--navy) 0 7px,
+          #ffffff 7px 14px,
+          var(--navy) 14px 21px
+        );
+      opacity: 0.95;
+    }
+
+    .hero {
+      background:
+        linear-gradient(90deg, rgba(3,40,63,0.94), rgba(7,59,92,0.76)),
+        var(--navy);
+      color: white;
+      text-align: center;
+      padding: 64px 0 58px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      line-height: 0.9;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero p {
+      margin: 14px auto 0;
+      max-width: 720px;
+      color: rgba(255,255,255,0.86);
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    .menu-section {
+      padding: 52px 0;
+    }
+
+    .menu-page {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .menu-page-top {
+      background: var(--navy);
+      color: white;
+      text-align: center;
+      padding: 20px 16px 18px;
+      position: relative;
+    }
+
+    .menu-page-top::before,
+    .menu-page-top::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 22%;
+      height: 8px;
+      background:
+        repeating-linear-gradient(
+          45deg,
+          white 0 6px,
+          transparent 6px 12px
+        );
+      opacity: 0.9;
+    }
+
+    .menu-page-top::before {
+      left: 18px;
+    }
+
+    .menu-page-top::after {
+      right: 18px;
+    }
+
+    .menu-page-top h2 {
+      margin: 0;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .menu-page-top p {
+      margin: 8px 0 0;
+      color: rgba(255,255,255,0.84);
+      font-weight: 800;
+    }
+
+    .menu-content {
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .menu-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #fffdf8;
+    }
+
+    .menu-card h3 {
+      margin: 0;
+      background: var(--navy);
+      color: white;
+      text-align: center;
+      padding: 15px 14px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-size: 1.1rem;
+    }
+
+    .menu-card h3 span {
+      color: var(--gold);
+    }
+
+    .items {
+      padding: 18px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .item {
+      border-bottom: 1px dashed rgba(7,59,92,0.25);
+      padding-bottom: 12px;
+    }
+
+    .item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      color: var(--navy);
+      font-weight: 900;
+      font-size: 1.03rem;
+    }
+
+    .price {
+      color: var(--red);
+      white-space: nowrap;
+    }
+
+    .desc {
+      margin-top: 5px;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 0.93rem;
+    }
+
+    .add-ons {
+      margin-top: 12px;
+      padding: 14px;
+      background: #edf8ff;
+      border-radius: 16px;
+      color: var(--navy);
+      font-weight: 800;
+      line-height: 1.7;
+      font-size: 0.93rem;
+    }
+
+    .seafood-strip {
+      background: var(--navy);
+      color: white;
+      padding: 14px 16px;
+      text-align: center;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      border-top: 6px solid var(--gold);
+    }
+
+    .icons {
+      font-size: 1.6rem;
+      letter-spacing: 0.3em;
+      margin-bottom: 6px;
+    }
+
+    .qr-section {
+      padding: 54px 0 70px;
+      text-align: center;
+    }
+
+    .qr-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 30px;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .qr-card h2 {
+      color: var(--navy);
+      margin: 0 0 8px;
+      font-size: 2.2rem;
+      letter-spacing: -0.04em;
+    }
+
+    .qr-card p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .qr-box {
+      width: 220px;
+      height: 220px;
+      border: 4px dashed var(--navy);
+      border-radius: 24px;
+      margin: 24px auto 0;
+      display: grid;
+      place-items: center;
+      background: var(--cream);
+      color: var(--muted);
+      font-weight: 900;
+      text-align: center;
+      padding: 18px;
+    }
+
+    footer {
+      background: var(--navy-dark);
+      color: white;
+      text-align: center;
+      padding: 28px 0;
+    }
+
+    footer p {
+      margin: 6px 0 0;
+      color: rgba(255,255,255,0.72);
+    }
+
+    @media (max-width: 900px) {
+      .menu-content {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-page-top::before,
+      .menu-page-top::after {
+        width: 12%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        justify-content: center;
+        text-align: center;
+        padding: 12px 0;
+      }
+
+      .brand {
+        width: 100%;
+        text-align: center;
+      }
+
+      .links {
+        justify-content: center;
+      }
+
+      .links a {
+        font-size: 0.78rem;
+        padding: 9px 10px;
+      }
+
+      .hero {
+        padding: 46px 0;
+      }
+
+      .menu-content {
+        padding: 16px;
+      }
+
+      .menu-page-top::before,
+      .menu-page-top::after {
+        display: none;
+      }
+
+      .row {
+        font-size: 0.96rem;
+      }
+
+      .qr-box {
+        width: 190px;
+        height: 190px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-strip">
+    Captain Kal’s Menu · Fresh Daily Selections · Steamed to Order
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html">⚓ Captain Kal’s</a>
+      <nav class="links">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+        <a class="call-btn" href="tel:9017797062">Call Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="rope"></div>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Seafood Market</h1>
+      <p>Fresh daily selections, steamed-to-order favorites, lobster specialties, signature sides, desserts, and drinks.</p>
+    </div>
+  </section>
+
+  <div class="rope"></div>
+
+  <section class="menu-section">
+    <div class="container">
+      <div class="menu-page">
+
+        <div class="menu-page-top">
+          <h2>Fresh Daily Selections</h2>
+          <p>Steamed to Order</p>
+        </div>
+
+        <div class="menu-content">
+
+          <div class="menu-card">
+            <h3>Off The <span>Ice</span></h3>
+            <div class="items">
+              <div class="item"><div class="row"><span>Classic Snow Crab</span><span class="price">$25/lb</span></div></div>
+              <div class="item"><div class="row"><span>Giant Alaskan Snow Crab</span><span class="price">$31/lb</span></div></div>
+              <div class="item"><div class="row"><span>Jumbo Gulf Shrimp</span><span class="price">$13/lb</span></div></div>
+              <div class="item"><div class="row"><span>Cold Water Lobster Tails</span><span class="price">$14 ea</span></div></div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <h3>Signature <span>Sides</span></h3>
+            <div class="items">
+              <div class="item"><div class="row"><span>Savory Beef Sausage</span><span class="price">$4</span></div></div>
+              <div class="item"><div class="row"><span>Baby Red Potatoes</span><span class="price">$3</span></div></div>
+              <div class="item"><div class="row"><span>Buttered Corn on Cob</span><span class="price">$3</span></div></div>
+              <div class="item"><div class="row"><span>Cheddar Bay Biscuits</span><span class="price">$2 ea / 3pk $5</span></div></div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <h3>Lobster <span>Specialties</span></h3>
+            <div class="items">
+              <div class="item">
+                <div class="row"><span>Maine Roll</span><span class="price">$26</span></div>
+                <div class="desc">Chilled North Atlantic lobster tossed in lemon-herb mayo, served on a butter-toasted roll.</div>
+              </div>
+              <div class="item">
+                <div class="row"><span>Connecticut Roll</span><span class="price">$26</span></div>
+                <div class="desc">Warm butter-poached lobster finished in garlic herb butter on a butter-toasted roll.</div>
+              </div>
+              <div class="item">
+                <div class="row"><span>Lobster Grilled Cheese</span><span class="price">$22</span></div>
+                <div class="desc">Lobster meat layered with sharp white cheddar on thick-cut buttery Texas toast.</div>
+              </div>
+              <div class="item">
+                <div class="row"><span>Whole Steamed Lobster</span><span class="price">MKT</span></div>
+                <div class="desc">Fresh cold-water lobster steamed to perfection and finished in garlic butter.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <h3>Steamed <span>Platters</span></h3>
+            <div class="items">
+              <div class="item">
+                <div class="row"><span>Classic Snow Crab Platter</span><span class="price">$34</span></div>
+                <div class="desc">1 lb sweet Alaskan snow crab, savory beef sausage, corn, and red potatoes.</div>
+              </div>
+              <div class="item">
+                <div class="row"><span>Giant Snow Crab Platter</span><span class="price">$42</span></div>
+                <div class="desc">2 clusters giant Alaskan snow crab, beef sausage, corn, and red potatoes.</div>
+              </div>
+              <div class="item">
+                <div class="row"><span>Shrimp Lover’s Platter</span><span class="price">$22</span></div>
+                <div class="desc">1 lb jumbo shrimp, beef sausage, corn, and red potatoes.</div>
+              </div>
+              <div class="item">
+                <div class="row"><span>Captain’s Combo Platter</span><span class="price">$65</span></div>
+                <div class="desc">1 lb giant Alaskan snow crab, 1 lobster tail, ½ lb jumbo shrimp, beef sausage, corn, and red potatoes.</div>
+              </div>
+              <div class="item">
+                <div class="row"><span>Dinner for Two Platter</span><span class="price">$82</span></div>
+                <div class="desc">2 lb giant Alaskan snow crab, 1 lb jumbo shrimp, beef sausage, corn, and red potatoes.</div>
+              </div>
+              <div class="item">
+                <div class="row"><span>Family of Four Platter</span><span class="price">$155</span></div>
+                <div class="desc">4 lb giant Alaskan snow crab, 2 lb jumbo shrimp, beef sausage, corn, and red potatoes.</div>
+              </div>
+
+              <div class="add-ons">
+                Add-ons Available: Extra Classic Crab Cluster +$13 · Giant +$18 · Add ½ lb Shrimp +$8 · Lobster Tail +$14
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <h3>Dockside <span>Desserts</span></h3>
+            <div class="items">
+              <div class="item"><div class="row"><span>Sugar Avenue Strawberry Cake</span><span class="price">$7</span></div></div>
+              <div class="item"><div class="row"><span>Sugar Avenue Chocolate Cake</span><span class="price">$7</span></div></div>
+              <div class="item"><div class="row"><span>New York Cheesecake</span><span class="price">$7</span></div></div>
+              <div class="item"><div class="row"><span>White Choc Rasp Cheesecake</span><span class="price">$7</span></div></div>
+              <div class="item"><div class="row"><span>Eli’s Totally Turtle Cheesecake</span><span class="price">$8</span></div></div>
+              <div class="item"><div class="row"><span>Chocolate Fudge Cheesecake</span><span class="price">$7</span></div></div>
+              <div class="item"><div class="row"><span>Kenny’s Key Lime Pie</span><span class="price">$7</span></div></div>
+              <div class="item"><div class="row"><span>Zay’s Famous Cinnamon Roll</span><span class="price">$8</span></div></div>
+              <div class="item"><div class="row"><span>House-made Banana Pudding</span><span class="price">$6</span></div></div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <h3>Beverages <span>& Extras</span></h3>
+            <div class="items">
+              <div class="item">
+                <div class="row"><span>Beverages</span><span class="price">$2.49</span></div>
+                <div class="desc">Bottled water, soda, sweet tea, Snapple, sparkling water, and lemonade.</div>
+              </div>
+              <div class="item">
+                <div class="row"><span>Served Hot</span><span class="price">Daily</span></div>
+                <div class="desc">Platters are served hot with house garlic lemon butter and savory signature seasoning.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="seafood-strip">
+          <div class="icons">🦀 🦞 🦐 🐟 🍋</div>
+          All platters served with house-made Cheddar Bay Biscuits
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="qr-section">
+    <div class="container">
+      <div class="qr-card">
+        <h2>Scan For Menu</h2>
+        <p>Place the restaurant’s QR code image inside this square once you generate or upload it.</p>
+        <div class="qr-box">QR CODE<br>GOES HERE</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <strong>Captain Kal’s Seafood Market & Steamer</strong>
+    <p>Call 901-779-7062 · Bartlett, TN</p>
+  </footer>
+
+</body>
+</html>
