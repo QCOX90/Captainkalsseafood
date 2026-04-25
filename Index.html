@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Captain Kal’s Seafood Market & Steamer | Bartlett, TN</title>
+
+  <style>
+    :root {
+      --navy: #073b5c;
+      --navy-dark: #03283f;
+      --blue: #0d6fa6;
+      --sky: #dff4ff;
+      --red: #d94b45;
+      --gold: #d7a64a;
+      --cream: #fff8ee;
+      --white: #ffffff;
+      --text: #102433;
+      --muted: #5c6b75;
+      --line: rgba(7, 59, 92, 0.14);
+      --shadow: 0 18px 45px rgba(0,0,0,0.14);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--cream);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .top-strip {
+      background: var(--navy-dark);
+      color: white;
+      font-size: 0.9rem;
+      padding: 9px 0;
+      text-align: center;
+      letter-spacing: 0.03em;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 248, 238, 0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      color: var(--navy);
+      letter-spacing: -0.04em;
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+
+    .brand-badge {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--navy);
+      display: grid;
+      place-items: center;
+      color: white;
+      border: 3px solid white;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.14);
+      font-size: 1.35rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      padding: 10px 12px;
+      border-radius: 999px;
+      color: var(--navy);
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a:hover {
+      background: var(--sky);
+    }
+
+    .call-btn {
+      background: var(--red) !important;
+      color: white !important;
+      box-shadow: 0 8px 18px rgba(217,75,69,0.25);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(3,40,63,0.92), rgba(7,59,92,0.78)),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.28), transparent 32%),
+        var(--navy);
+      color: white;
+      padding: 76px 0 52px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 18px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--red) 0 40px,
+        var(--cream) 40px 80px,
+        var(--blue) 80px 120px
+      );
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gold);
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 9px 13px;
+      border-radius: 999px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+    }
+
+    h1 {
+      margin: 18px 0 16px;
+      font-size: clamp(2.6rem, 7vw, 5.8rem);
+      line-height: 0.9;
+      letter-spacing: -0.07em;
+    }
+
+    .hero p {
+      color: rgba(255,255,255,0.88);
+      font-size: 1.08rem;
+      line-height: 1.8;
+      max-width: 650px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 14px 19px;
+      border-radius: 999px;
+      font-weight: 900;
+      transition: 0.25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--navy);
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy-dark);
+    }
+
+    .hero-card {
+      background: white;
+      color: var(--text);
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 8px solid rgba(255,255,255,0.18);
+    }
+
+    .hero-photo {
+      min-height: 290px;
+      background:
+        linear-gradient(rgba(255,255,255,0.12), rgba(255,255,255,0.12)),
+        repeating-linear-gradient(
+          45deg,
+          #e6f5ff 0 28px,
+          #ffffff 28px 56px
+        );
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 28px;
+    }
+
+    .hero-photo-inner {
+      background: var(--navy);
+      color: white;
+      padding: 24px;
+      border-radius: 999px;
+      border: 5px solid white;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.18);
+    }
+
+    .hero-photo-inner strong {
+      display: block;
+      font-size: 2rem;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-info {
+      padding: 22px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      background: white;
+    }
+
+    .mini-stat {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px;
+      background: #fffdf8;
+    }
+
+    .mini-stat strong {
+      display: block;
+      color: var(--navy);
+      font-size: 1rem;
+    }
+
+    .mini-stat span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .section {
+      padding: 74px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 32px;
+    }
+
+    .section-title .small {
+      color: var(--red);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 900;
+      font-size: 0.8rem;
+    }
+
+    h2 {
+      margin: 8px 0 10px;
+      color: var(--navy);
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .about-panel {
+      background: white;
+      border-radius: var(--radius);
+      padding: 30px;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.06);
+    }
+
+    .about-panel.dark {
+      background: var(--navy);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-panel.dark p {
+      color: rgba(255,255,255,0.86);
+    }
+
+    .about-panel h3 {
+      margin-top: 0;
+      color: inherit;
+      font-size: 1.6rem;
+    }
+
+    .about-panel p {
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .check-list {
+      list-style: none;
+      padding: 0;
+      margin: 18px 0 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .check-list li {
+      padding: 14px 14px;
+      background: #fff8ee;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .menu-band {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.78), rgba(255,248,238,1)),
+        var(--cream);
+    }
+
+    .menu-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .menu-tab {
+      background: var(--navy);
+      color: white;
+      border-radius: 18px;
+      padding: 18px;
+      text-align: center;
+      font-weight: 900;
+      box-shadow: 0 12px 24px rgba(7,59,92,0.16);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .menu-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.07);
+    }
+
+    .menu-card h3 {
+      margin: 0;
+      padding: 18px 20px;
+      background: var(--navy);
+      color: white;
+      font-size: 1.35rem;
+      letter-spacing: -0.03em;
+    }
+
+    .menu-card h3 span {
+      color: var(--gold);
+    }
+
+    .menu-items {
+      padding: 18px 20px 20px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .menu-item {
+      border-bottom: 1px dashed rgba(7,59,92,0.22);
+      padding-bottom: 12px;
+    }
+
+    .menu-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .item-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: baseline;
+      color: var(--navy);
+      font-weight: 900;
+      font-size: 1.05rem;
+    }
+
+    .price {
+      color: var(--red);
+      white-space: nowrap;
+    }
+
+    .desc {
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 0.94rem;
+      margin-top: 5px;
+    }
+
+    .note {
+      background: var(--sky);
+      border-left: 5px solid var(--blue);
+      color: var(--navy);
+      padding: 16px;
+      border-radius: 16px;
+      margin-top: 24px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .gallery {
+      background: var(--navy-dark);
+      color: white;
+    }
+
+    .gallery h2,
+    .gallery .section-title p {
+      color: white;
+    }
+
+    .gallery .small {
+      color: var(--gold);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .gallery-tile {
+      min-height: 235px;
+      border-radius: 24px;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(13,111,166,0.9), rgba(217,75,69,0.72)),
+        repeating-linear-gradient(
+          45deg,
+          rgba(255,255,255,0.15) 0 20px,
+          rgba(255,255,255,0.05) 20px 40px
+        );
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+      box-shadow: 0 16px 34px rgba(0,0,0,0.2);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .gallery-tile strong {
+      font-size: 1.25rem;
+    }
+
+    .reviews {
+      background: white;
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 18px;
+    }
+
+    .review-card {
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .stars {
+      color: var(--gold);
+      font-size: 1.2rem;
+      letter-spacing: 0.05em;
+    }
+
+    .review-card p {
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .cta {
+      background:
+        linear-gradient(90deg, rgba(7,59,92,0.95), rgba(7,59,92,0.72)),
+        var(--navy);
+      color: white;
+      padding: 64px 0;
+    }
+
+    .cta-box {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .cta h2 {
+      color: white;
+      margin-top: 0;
+    }
+
+    .cta p {
+      color: rgba(255,255,255,0.86);
+      line-height: 1.8;
+    }
+
+    .cta-actions {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .contact {
+      background: var(--cream);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .contact-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.07);
+    }
+
+    .contact-card h3 {
+      color: var(--navy);
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+
+    .contact-line {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .contact-line strong {
+      color: var(--navy);
+      display: block;
+    }
+
+    footer {
+      background: var(--navy-dark);
+      color: white;
+      padding: 28px 0;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 6px 0 0;
+      color: rgba(255,255,255,0.72);
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .about-grid,
+      .menu-grid,
+      .cta-box,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-tabs,
+      .gallery-grid,
+      .review-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .cta-actions {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .top-strip {
+        font-size: 0.78rem;
+      }
+
+      .nav {
+        justify-content: center;
+        text-align: center;
+        padding: 12px 0;
+      }
+
+      .brand {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 6px;
+      }
+
+      .nav-links a {
+        font-size: 0.78rem;
+        padding: 9px 10px;
+      }
+
+      .hero {
+        padding: 48px 0 42px;
+      }
+
+      .hero-info,
+      .menu-tabs,
+      .gallery-grid,
+      .review-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 54px 0;
+      }
+
+      .hero-actions .btn,
+      .cta-actions .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-strip">
+    Bartlett Seafood Market & Steamer · Fresh Daily Selections · Steamed to Order
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a href="#home" class="brand">
+        <span class="brand-badge">⚓</span>
+        <span>Captain Kal’s</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#menu">Menu</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+        <a class="call-btn" href="tel:9017797062">Call Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Seafood Market & Steamer</div>
+          <h1>Fresh seafood, steamed hot, served Captain Kal’s style.</h1>
+          <p>
+            Captain Kal’s Seafood Market & Steamer brings Bartlett fresh daily seafood selections,
+            steamed platters, lobster specialties, signature sides, desserts, and casual coastal comfort.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="tel:9017797062">Call 901-779-7062</a>
+            <a class="btn btn-secondary" href="#menu">View Menu</a>
+            <a class="btn btn-gold" href="https://www.google.com/search?client=safari&hs=5i6U&sca_esv=dca6e93b619ee7bb&hl=en-us&q=captain+kal%E2%80%99s+seafood+market+and+steamer+bartlett+reviews&uds=ALYpb_kN2cUz_9SmUdBFNVJqFNibFJuEGiDSpY4xGHD90_VGq9Z4PxUZ1ivInNJDiBX_hIK3ThM3AejZmEx3LR67IkSfAWhNPT4p85nEw4-7VcdwhMLPjR5XLBH7I89mBP4FowCfyzX0-DTQB_JPDObZD94KoKW2v2jv4MHRLdYSL88G_P_1bSKYLNGyeSWMbjKvgJ1dME8rnByeep5mmCGenb_m2XQha-qJ9JYTnaZcGgPF9knHDEKtliHJCrMuIu2WAFNrtT3gK2UdZ6bKBBkLEB3eF8VT_BJ1TbtModziKcVIhfsJ9lWxiLvGgSlA4BsV9looDRyhb0Mhc4EmZTnAht-bbBWLZ2Gsu6GA-seKVRq7tEFb_k261S19_XcVi-GBizgWBkM9MSIune2vO15Zrb2jst422qSwlyLIdqsexWRNVy62MirXsDzj81bKBX7dPJLH1pXhPc4q-azg5QrzuaVzENrZS1yVuybsklrj8ktrhgjXpF8vfXgwsUsD5j45zsZodNB-&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOcti5Lw_L5ePjy8ZfttfAeZP4CJ-W4LBCrSTaQaiU82LYBT3di-Pi61Z8VVM6hmOu5odJiyvjlm1gMUdU4lPHiPg4T_4w6JahfHpG3LDZLl-BQpG0cn0ahrZ38D3pbG5CKmbNWUEzBpsWK6FBvkJCW2bC-Nu&sa=X&ictx=1&biw=440&bih=796&dpr=3&sei=x-vsaZuvM77u-LYPoubKyQQ&dlnr=1" target="_blank">Leave a Review</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-photo">
+            <div class="hero-photo-inner">
+              <strong>Captain Kal’s</strong>
+              <span>Market ⚓ Steamer</span>
+            </div>
+          </div>
+
+          <div class="hero-info">
+            <div class="mini-stat">
+              <strong>Fresh Daily</strong>
+              <span>Seafood selections</span>
+            </div>
+            <div class="mini-stat">
+              <strong>Steamed to Order</strong>
+              <span>Hot platters & sides</span>
+            </div>
+            <div class="mini-stat">
+              <strong>Casual Dining</strong>
+              <span>Family friendly</span>
+            </div>
+            <div class="mini-stat">
+              <strong>Bartlett, TN</strong>
+              <span>Seafood restaurant</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container about-grid">
+        <div class="about-panel dark">
+          <h3>Seafood with a coastal-market feel.</h3>
+          <p>
+            From snow crab and shrimp to lobster rolls, steamed platters, signature sides,
+            and desserts, Captain Kal’s keeps the menu focused on fresh flavor and comfort.
+          </p>
+          <p>
+            Guests can stop in for a quick bite, dinner, takeout, or a seafood spread made for sharing.
+          </p>
+        </div>
+
+        <div class="about-panel">
+          <h3>Why customers stop by</h3>
+          <ul class="check-list">
+            <li>✓ Fresh seafood selections</li>
+            <li>✓ Steamed platters and lobster specialties</li>
+            <li>✓ Signature sides including sausage, potatoes, corn, and biscuits</li>
+            <li>✓ Casual, family-friendly restaurant atmosphere</li>
+            <li>✓ Takeout, dine-in, curbside pickup, and delivery options</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu" class="section menu-band">
+      <div class="container">
+        <div class="section-title">
+          <div class="small">Menu Highlights</div>
+          <h2>Seafood favorites, platters, sides, and sweets.</h2>
+          <p>
+            Pricing may change based on market availability. Call ahead for current selections and lobster market pricing.
+          </p>
+        </div>
+
+        <div class="menu-tabs">
+          <div class="menu-tab">Off The Ice</div>
+          <div class="menu-tab">Steamed Platters</div>
+          <div class="menu-tab">Lobster Specialties</div>
+          <div class="menu-tab">Desserts & Drinks</div>
+        </div>
+
+        <div class="menu-grid">
+
+          <div class="menu-card">
+            <h3>Off The <span>Ice</span></h3>
+            <div class="menu-items">
+              <div class="menu-item">
+                <div class="item-row"><span>Classic Snow Crab</span><span class="price">$25/lb</span></div>
+              </div>
+              <div class="menu-item">
+                <div class="item-row"><span>Giant Alaskan Snow Crab</span><span class="price">$31/lb</span></div>
+              </div>
+              <div class="menu-item">
+                <div class="item-row"><span>Jumbo Gulf Shrimp</span><span class="price">$13/lb</span></div>
+              </div>
+              <div class="menu-item">
+                <div class="item-row"><span>Cold Water Lobster Tails</span><span class="price">$14 ea</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <h3>Signature <span>Sides</span></h3>
+            <div class="menu-items">
+              <div class="menu-item">
+                <div class="item-row"><span>Savory Beef Sausage</span><span class="price">$4</span></div>
+              </div>
+              <div class="menu-item">
+                <div class="item-row"><span>Baby Red Potatoes</span><span class="price">$3</span></div>
+              </div>
+              <div class="menu-item">
+                <div class="item-row"><span>Buttered Corn on Cob</span><span class="price">$3</span></div>
+              </div>
+              <div class="menu-item">
+                <div class="item-row"><span>Cheddar Bay Biscuits</span><span class="price">$2 ea / 3pk $5</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <h3>Steamed <span>Platters</span></h3>
+            <div class="menu-items">
+              <div class="menu-item">
+                <div class="item-row"><span>Classic Snow Crab Platter</span><span class="price">$34</span></div>
+                <div class="desc">1 lb sweet Alaskan snow crab, savory beef sausage, corn, and red potatoes.</div>
+              </div>
+              <div class="menu-item">
+                <div class="item-row"><span>Giant Snow Crab Platter</span><span class="price">$42</span></div>
+                <div class="desc">2 clusters of giant Alaskan snow crab, beef sausage, corn, and red potatoes.</div>
+              </div>
+              <div class="menu-item">
+                <div class="item-row"><span>Shrimp Lover’s Platter</span><span class="price">$22</span></div>
+                <div class="desc">1 lb jumbo shrimp, beef sausage, corn, and red potatoes.</div>
+              </div>
+              <div class="menu-item">
+                <div class="item-row"><span>Captain’s Combo Platter</span><span class="price">$65</span></div>
+                <div class="desc">1 lb giant Alaskan snow crab, 1 lobster tail, ½ lb jumbo shrimp, beef sausage, corn, and red potatoes.</div>
+              </div>
+              <div class="menu-item">
+                <div class="item-row"><span>Dinner for Two Platter</span><span class="price">$82</span></div>
+                <div class="desc">2 lb giant Alaskan snow crab, 1 lb jumbo shrimp, beef sausage, corn, and red potatoes.</div>
+              </div>
+              <div class="menu-item">
+                <div class="item-row"><span>Family of Four Platter</span><span class="price">$155</span></div>
+                <div class="desc">4 lb giant Alaskan snow crab, 2 lb jumbo shrimp, beef sausage, corn, and red potatoes.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <h3>Lobster <span>Specialties</span></h3>
+            <div class="menu-items">
+              <div class="menu-item">
+                <div class="item-row"><span>Maine Roll</span><span class="price">$26</span></div>
+                <div class="desc">Chilled North Atlantic lobster tossed in lemon-herb mayo, served on a butter-toasted roll with red potatoes and corn.</div>
+              </div>
+              <div class="menu-item">
+                <div class="item-row"><span>Connecticut Roll</span><span class="price">$26</span></div>
+                <div class="desc">Warm butter-poached lobster finished in garlic herb butter on a butter-toasted roll.</div>
+              </div>
+              <div class="menu-item">
+                <div class="item-row"><span>Lobster Grilled Cheese</span><span class="price">$22</span></div>
+                <div class="desc">Lobster meat layered with white cheddar and melted on thick-cut buttery Texas toast.</div>
+              </div>
+              <div class="menu-item">
+                <div class="item-row"><span>Whole Steamed Lobster</span><span class="price">MKT</span></div>
+                <div class="desc">Fresh cold-water lobster, steamed to perfection and finished in garlic butter.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <h3>Dockside <span>Desserts</span></h3>
+            <div class="menu-items">
+              <div class="menu-item"><div class="item-row"><span>Sugar Avenue Strawberry Cake</span><span class="price">$7</span></div></div>
+              <div class="menu-item"><div class="item-row"><span>Sugar Avenue Chocolate Cake</span><span class="price">$7</span></div></div>
+              <div class="menu-item"><div class="item-row"><span>New York Cheesecake</span><span class="price">$7</span></div></div>
+              <div class="menu-item"><div class="item-row"><span>White Choc Rasp Cheesecake</span><span class="price">$7</span></div></div>
+              <div class="menu-item"><div class="item-row"><span>Eli’s Totally Turtle Cheesecake</span><span class="price">$8</span></div></div>
+              <div class="menu-item"><div class="item-row"><span>House-made Banana Pudding</span><span class="price">$6</span></div></div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <h3>Beverages <span>& Add-ons</span></h3>
+            <div class="menu-items">
+              <div class="menu-item">
+                <div class="item-row"><span>Beverages</span><span class="price">$2.49</span></div>
+                <div class="desc">Bottled water, soda, sweet tea, Snapple, sparkling water, and lemonade.</div>
+              </div>
+              <div class="menu-item">
+                <div class="item-row"><span>Add Extra Classic Crab Cluster</span><span class="price">+$13</span></div>
+              </div>
+              <div class="menu-item">
+                <div class="item-row"><span>Add Extra Giant Crab Cluster</span><span class="price">+$18</span></div>
+              </div>
+              <div class="menu-item">
+                <div class="item-row"><span>Add ½ lb Shrimp</span><span class="price">+$8</span></div>
+              </div>
+              <div class="menu-item">
+                <div class="item-row"><span>Add Lobster Tail</span><span class="price">+$14</span></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="note">
+          All platters served hot with house garlic lemon butter and savory signature seasoning.
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="section gallery">
+      <div class="container">
+        <div class="section-title">
+          <div class="small">Gallery</div>
+          <h2>Fresh seafood, clean atmosphere, and coastal details.</h2>
+          <p>
+            Add real restaurant photos here once your image files are uploaded to GitHub.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-tile"><strong>Seafood Market Display</strong></div>
+          <div class="gallery-tile"><strong>Steamed Platters</strong></div>
+          <div class="gallery-tile"><strong>Lobster Specialties</strong></div>
+          <div class="gallery-tile"><strong>Dining Room</strong></div>
+          <div class="gallery-tile"><strong>Captain Kal’s Exterior</strong></div>
+          <div class="gallery-tile"><strong>Dockside Desserts</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews" class="section reviews">
+      <div class="container">
+        <div class="section-title">
+          <div class="small">Customer Reviews</div>
+          <h2>Leave Captain Kal’s a review.</h2>
+          <p>
+            Loved your meal? Reviews help local customers find Captain Kal’s and support the restaurant.
+          </p>
+        </div>
+
+        <div class="review-grid">
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>Fresh seafood, friendly service, and a menu with plenty of options.</p>
+            <strong>Fresh Daily</strong>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>Great for dinner, takeout, seafood platters, and family-style meals.</p>
+            <strong>Casual Dining</strong>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>Steamed to order seafood with sides, desserts, and coastal flavor.</p>
+            <strong>Bartlett Seafood</strong>
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-top:28px;">
+          <a class="btn btn-primary" href="https://www.google.com/search?client=safari&hs=5i6U&sca_esv=dca6e93b619ee7bb&hl=en-us&q=captain+kal%E2%80%99s+seafood+market+and+steamer+bartlett+reviews&uds=ALYpb_kN2cUz_9SmUdBFNVJqFNibFJuEGiDSpY4xGHD90_VGq9Z4PxUZ1ivInNJDiBX_hIK3ThM3AejZmEx3LR67IkSfAWhNPT4p85nEw4-7VcdwhMLPjR5XLBH7I89mBP4FowCfyzX0-DTQB_JPDObZD94KoKW2v2jv4MHRLdYSL88G_P_1bSKYLNGyeSWMbjKvgJ1dME8rnByeep5mmCGenb_m2XQha-qJ9JYTnaZcGgPF9knHDEKtliHJCrMuIu2WAFNrtT3gK2UdZ6bKBBkLEB3eF8VT_BJ1TbtModziKcVIhfsJ9lWxiLvGgSlA4BsV9looDRyhb0Mhc4EmZTnAht-bbBWLZ2Gsu6GA-seKVRq7tEFb_k261S19_XcVi-GBizgWBkM9MSIune2vO15Zrb2jst422qSwlyLIdqsexWRNVy62MirXsDzj81bKBX7dPJLH1pXhPc4q-azg5QrzuaVzENrZS1yVuybsklrj8ktrhgjXpF8vfXgwsUsD5j45zsZodNB-&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOcti5Lw_L5ePjy8ZfttfAeZP4CJ-W4LBCrSTaQaiU82LYBT3di-Pi61Z8VVM6hmOu5odJiyvjlm1gMUdU4lPHiPg4T_4w6JahfHpG3LDZLl-BQpG0cn0ahrZ38D3pbG5CKmbNWUEzBpsWK6FBvkJCW2bC-Nu&sa=X&ictx=1&biw=440&bih=796&dpr=3&sei=x-vsaZuvM77u-LYPoubKyQQ&dlnr=1" target="_blank">Review Us on Google</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container cta-box">
+        <div>
+          <h2>Hungry for seafood?</h2>
+          <p>
+            Call Captain Kal’s to check current seafood availability, market pricing, hours, and daily selections.
+          </p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="tel:9017797062">Call Now</a>
+          <a class="btn btn-secondary" href="#menu">Explore Menu</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="container">
+        <div class="section-title">
+          <div class="small">Contact</div>
+          <h2>Visit or call Captain Kal’s.</h2>
+          <p>
+            Fresh seafood, casual dining, takeout, and steamed-to-order favorites in Bartlett.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Restaurant Info</h3>
+            <div class="contact-line">
+              <strong>Business</strong>
+              Captain Kal’s Seafood Market & Steamer
+            </div>
+            <div class="contact-line">
+              <strong>Phone</strong>
+              <a href="tel:9017797062">901-779-7062</a>
+            </div>
+            <div class="contact-line">
+              <strong>Location</strong>
+              Bartlett, Tennessee
+            </div>
+            <div class="contact-line">
+              <strong>Service Options</strong>
+              Dine-in, takeout, curbside pickup, and delivery
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <h3>Good To Know</h3>
+            <div class="contact-line">
+              <strong>Popular For</strong>
+              Lunch, dinner, solo dining, and catering
+            </div>
+            <div class="contact-line">
+              <strong>Offerings</strong>
+              Comfort food, quick bites, seafood platters, lobster rolls, desserts, and drinks
+            </div>
+            <div class="contact-line">
+              <strong>Atmosphere</strong>
+              Casual, family-friendly, and seafood-market inspired
+            </div>
+            <div class="contact-line">
+              <strong>Payments</strong>
+              Credit cards and debit cards accepted
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <strong>Captain Kal’s Seafood Market & Steamer</strong>
+    <p>Fresh Daily Selections · Steamed to Order · Bartlett, TN</p>
+  </footer>
+
+</body>
+</html>
